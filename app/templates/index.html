@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>2 Col Portfolio - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/2-col-portfolio.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4 text-center">PGA Tour Averages ({{ current_year }})</h1>
+      <form action="{{ url_for('stats') }}" method="POST">
+        <div class="drop-year text-center">
+          <input class="span2" id="search_type" name="current_year" type="hidden">
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" id="test" data-toggle="dropdown">
+                  {{ current_year }}
+            <span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2002">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2003">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2004">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2005">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2006">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2007">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2008">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2009">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2010">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2011">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2012">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2013">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2014">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2015">
+                <input type="submit" class="form-control btn btn-link" name="year" value="2016">
+              </ul>
+          </div>
+        </div>
+      </form>
+
+      <!-- Main -->
+      <div class="row">
+        <div class="col-lg-6 portfolio-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="text-center">Ball-Striking</h3>
+              <table class="table table-striped my-table">
+                <tr>
+                  <td class="wide"><strong>Stat</strong></td>
+                  <td><strong>10th</strong></td>
+                  <td><strong>25th</strong></td>
+                  <td><strong>100th</strong></td>
+                </tr>
+                {% for item in b %}
+                <tr>
+                  <td class="wide"><strong>{{ item['Stat'] }}</strong></td>
+                  <td>{{ item['Top 10'] }}</td>
+                  <td>{{ item['Top 25'] }}</td>
+                  <td>{{ item['Top 100'] }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 portfolio-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="text-center">Scoring</h3>
+              <table class="table table-striped my-table">
+                <tr>
+                  <td class="wide"><strong>Stat</strong></td>
+                  <td><strong>10th</strong></td>
+                  <td><strong>25th</strong></td>
+                  <td><strong>100th</strong></td>
+                </tr>
+                {% for item in s %}
+                <tr>
+                  <td class="wide"><strong>{{ item['Stat'] }}</strong></td>
+                  <td>{{ item['Top 10'] }}</td>
+                  <td>{{ item['Top 25'] }}</td>
+                  <td>{{ item['Top 100'] }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="text-center"><a href="http://zachgoll.github.io" class = "text-white text-center">Home</a></p>
+      </div>
+      <!-- /.container -->
+    </footer>
+<!--
+    <script type="text/javascript">
+      $(document).ready(function(){ 
+              $('.dropdown-menu li').click(function()
+                   {
+                       $('#my_topic').val($(this).html());
+                       $('#my_form').submit();
+                   });
+      });
+    </script>
+-->
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/popper/popper.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>
